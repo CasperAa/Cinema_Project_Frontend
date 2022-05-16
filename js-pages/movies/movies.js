@@ -11,7 +11,14 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 
 // initially get fav movies
-getMovies(MOVIE_API);
+
+export function movieMethods(){
+    getMovies(MOVIE_API);
+    showMovies()
+    searchMovie()
+
+}
+
 
 async function getMovies(url) {
     const resp = await fetch(url);
@@ -22,36 +29,43 @@ async function getMovies(url) {
     showMovies(respData.results);
 }
 
-export function showMovies(url){
-    fetch(url).then(res => res.json())
-    .then(function(data){
-    data.results.forEach(element => {
-      // Creating elemnts for our data inside the main tag. 
-        const el = document.createElement('div');
-        const image = document.createElement('img');
-        const text = document.createElement('h2');
+function showMovies(movies) {
+    main.innerHTML = "";
 
-        text.innerHTML = `${element.title}`;
-        image.src = IMGPATH + element.poster_path;
-        el.appendChild(image);
-        el.appendChild(text);
-        main.appendChild(el);
-    }); 
-});
+    movies.forEach((movie) => {
+        const { poster_path, title, overview } = movie;
+
+        const movieEl = document.createElement("div");
+        movieEl.classList.add("movie");
+
+        movieEl.innerHTML = `
+            <img
+                src="${IMGPATH + poster_path}"
+                alt="${title}"
+            />
+            <div class="movie-info">
+                <h3>${title}</h3>   
+            </div>
+            <div class="overview">
+                <h3>Overview:</h3>
+                ${overview}
+            </div>
+        `;
+
+        main.appendChild(movieEl);
+    });
 }
 
 
-export function searchMovies(){
-    // Prevent the Form from submitting if the search bar is empty.
+function searchMovie(){
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        main.innerHTML = '';
-        
+
         const searchTerm = search.value;
-    /* Adding the value wriiten in the search bar to the search Api,
-        in order to get the movies we search for. */
+
         if (searchTerm) {
-            showMovies(SEARCHAPI + searchTerm);
+            getMovies(SEARCHAPI + searchTerm);
+
             search.value = "";
         }
     });
