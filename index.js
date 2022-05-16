@@ -28,6 +28,7 @@ window.addEventListener("load", async () => {
     .on("/movies", () => {
       renderTemplate(templateMovies, "content")
       movieMethods()
+
     })
     
 
