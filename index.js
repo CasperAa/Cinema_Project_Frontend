@@ -25,14 +25,16 @@ window.addEventListener("load", async () => {
         done()
       }
     })
-    .on("/", () => renderText(templateHome, "content"))
+    .on("/", () => {
+      renderTemplate(templateHome, "content")
+    })
 
 
     .on("/movies", () => {
       renderTemplate(templateMovies, "content")
       showMovies()
       searchMovies()
-    },)
+    })
 
 
     .on( "/dates", (match) => { 
