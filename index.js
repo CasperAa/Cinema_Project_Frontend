@@ -1,21 +1,15 @@
 import "https://unpkg.com/navigo"  //Will create the global Navigo object used below
 
-import {
-  renderText,
-  setActiveLink,
-  loadTemplate,
-  renderTemplate
-} from "./utils.js"
+import { renderText, setActiveLink, loadTemplate, renderTemplate } from "./utils.js"
+import { movieMethods } from "./js-pages/movies/movies.js"
 
 
-import {showMovies, searchMovies} from "./js-pages/movies/movies.js"
 
 
 window.addEventListener("load", async () => {
   const templateHome = await loadTemplate("./js-pages/home/home.html")
   const templateMovies = await loadTemplate("./js-pages/movies/movies.html")
- 
-
+  const templateLogin = await loadTemplate("./js-pages/login/login.html")
 
   const router = new Navigo("/", { hash: true });
   router
@@ -25,6 +19,7 @@ window.addEventListener("load", async () => {
         done()
       }
     })
+
     .on("/", () => {
       renderTemplate(templateHome, "content")
     })
@@ -32,26 +27,14 @@ window.addEventListener("load", async () => {
 
     .on("/movies", () => {
       renderTemplate(templateMovies, "content")
-      showMovies()
-      searchMovies()
+      movieMethods()
     })
-
-
-    .on( "/dates", (match) => { 
-      renderTemplate(templateDates,"content")
-    })
-
+    
 
     .on( "/login", (match) => {
       renderTemplate(templateLogin,"content")
-      addHandler(router)
     })
-    
-      .on( "/show-match", (match) => renderText(`<pre>${JSON.stringify(match, null, 2)}</pre>`, "content"))
-      .notFound(() => renderText("No page for this route found", "content"))
-      .resolve()
-    },)
-      
 
+    });   
 
-window.onerror = (e) => alert(e)
+  window.onerror = (e) => alert(e)
