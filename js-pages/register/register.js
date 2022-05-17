@@ -1,11 +1,13 @@
-import { showPage } from "../utils.js"
-import {LOCAL_SERVER_URL} from "../settings.js"
-import {makeOptions} from "../../fetchUtils";
-import {CLOUD_SERVER_URL} from "../../settings";
+import {LOCAL_SERVER_URL} from "../../settings.js"
+import {makeOptions} from "../../fetchUtils.js";
 
-const URL = LOCAL_SERVER_URL + "/api/customers"
+const URL = LOCAL_SERVER_URL + "customers"
 
-export function registerCustomer() {
+export function setupRegisterHandlers() {
+    document.getElementById("btn-register").onclick = registerCustomer
+}
+
+function registerCustomer() {
     const customer = {}
     customer.email = document.getElementById("input-email").value
     customer.username = document.getElementById("input-username").value
