@@ -1,8 +1,9 @@
 import { showPage } from "../utils.js"
 import {LOCAL_SERVER_URL} from "../settings.js"
 import {makeOptions} from "../../fetchUtils";
+import {CLOUD_SERVER_URL} from "../../settings";
 
-const URL = LOCAL_SERVER_URL + "/auth/customers"
+const URL = LOCAL_SERVER_URL + "/auth/customers/register"
 
 export function setupLoginHandlers() {
     document.getElementById("btn-login").onclick = login
