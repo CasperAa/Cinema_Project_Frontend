@@ -4,7 +4,7 @@ import {makeOptions} from "../../fetchUtils";
 
 const URL = LOCAL_SERVER_URL + "/auth/register"
 
-async function registerCustomer() {
+export function registerCustomer() {
     const customer = {}
     customer.email = document.getElementById("input-email").value
     customer.username = document.getElementById("input-username").value

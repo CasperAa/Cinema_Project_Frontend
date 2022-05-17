@@ -2,18 +2,18 @@ import { showPage } from "../utils.js"
 import {LOCAL_SERVER_URL} from "../settings.js"
 import {makeOptions} from "../../fetchUtils";
 
-const URL = LOCAL_SERVER_URL + "/auth/login"
+const URL = LOCAL_SERVER_URL + "/auth/customers"
 
 export function setupLoginHandlers() {
     document.getElementById("btn-login").onclick = login
 }
 
 function login() {
-    const user = {}
-    user.userName = document.getElementById("username").value
-    user.password = document.getElementById("password").value
+    const customer = {}
+    customer.userName = document.getElementById("username").value
+    customer.password = document.getElementById("password").value
 
-    fetch(URL, makeOptions("POST", user))
+    fetch(URL, makeOptions("POST", customer))
         .then(res => {
             if (!res.ok) {
                 if (res.status == 401) {

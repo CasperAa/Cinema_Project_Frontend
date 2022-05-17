@@ -10,6 +10,7 @@ window.addEventListener("load", async () => {
   const templateHome = await loadTemplate("./js-pages/home/home.html")
   const templateMovies = await loadTemplate("./js-pages/movies/movies.html")
   const templateLogin = await loadTemplate("./js-pages/login/login.html")
+  const templateRegister = await loadTemplate("./js-pages/register/register.html")
 
   const router = new Navigo("/", { hash: true });
   router
@@ -31,6 +32,9 @@ window.addEventListener("load", async () => {
     .on( "/login", (match) => {
       renderTemplate(templateLogin,"content")
     })
+      .on( "/register", (match) => {
+        renderTemplate(templateRegister,"content")
+      })
 
     });   
 
