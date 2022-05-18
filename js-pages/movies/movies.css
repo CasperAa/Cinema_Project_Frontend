@@ -30,7 +30,7 @@ main {
 }
 
 .movie {
-    background-color: hsla(215, 100%, 50%, 0.5);
+    background-color: hsla(216, 100%, 99%, 0.74);
     border-radius: 3px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
