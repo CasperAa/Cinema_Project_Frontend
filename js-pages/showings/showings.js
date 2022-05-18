@@ -1,4 +1,3 @@
-const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=54a941ed644bdc17078cdb84d84995f2&query=";
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const movieURL = "https://api.themoviedb.org/3/movie/"
 const APIkey = "?api_key=54a941ed644bdc17078cdb84d84995f2"
@@ -12,39 +11,39 @@ export function showingsMethods(match){
 }
 
 async function getMovie(url) {
-    const resp = await fetch(url);
-    const respData = await resp.json();
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+    showMovie(data);
+    console.log(data.title);
+    console.log(data.release_date);
+    console.log(data.vote_average);
 
-    console.log(respData);
-    showMovie(respData.results);
 }
 
 function showMovie(movie) {
-    document.getElementById("main").innerHTML = "";
-
-        const movie = [poster_path, title, overview, release_date, vote_average]
+    document.getElementById("showings").innerHTML = "";
+    const { poster_path, title, overview, release_date, vote_average, backdrop_path, runtime} = movie;
 
         const movieEl = document.createElement("div");
-        movieEl.classList.add("movie");
+        movieEl.classList.add("selectedMovie");
 
         movieEl.innerHTML = `
-        <div id="${title}">
+        <div id="content-movie" style="background: src("${IMGPATH+backdrop_path}")>
             <h2>${title}</h2>
             <img
                 src="${IMGPATH + poster_path}"
                 alt="${title}"
             />
             <div class="movie-info">
-            <h5>Overview:</h5>
-            ${overview}
-            <p id="release_date"> ${release_date} </p>
-            <br>
-            <p id="vote_average"> ${vote_average} </p>
-
-            </div>
+            <h5>Summery:</h5>
+            <p id="overview-text">${overview}</p
+            <p id="release_date">Release Date - ${release_date} </p>
+            <p id="vote_average">Public Rating - ${vote_average}/10 </p>        
+            <p id="vote_average">Movie Length - ${runtime} minutes </p>
+            
         <div>
         `;
 
-        main.appendChild(movieEl);
-
-}
+        showings.appendChild(movieEl);
+    }

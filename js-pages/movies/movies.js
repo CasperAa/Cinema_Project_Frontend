@@ -35,7 +35,7 @@ function showMovies(movies) {
                 src="${IMGPATH + poster_path}"
                 alt="${title}"
             />
-            <div class="movie-info">
+            <div class="movie-data">
                 <h4>${title}</h4>   
             </div>
             <div class="overview">
@@ -51,7 +51,7 @@ function showMovies(movies) {
             </div>
         <div>
         `;
-
+    
         main.appendChild(movieEl);
     });
 }
