@@ -2,8 +2,7 @@ import "https://unpkg.com/navigo"  //Will create the global Navigo object used b
 
 import {setActiveLink, loadTemplate, renderTemplate } from "./utils.js"
 import {movieMethods } from "./js-pages/movies/movies.js"
-import {setupLoginHandlers, logout} from "./js-pages/login/login.js";
-import {setupRegisterHandlers} from "./js-pages/register/register.js";
+
 
 
 
@@ -34,13 +33,13 @@ window.addEventListener("load", async () => {
 
     .on( "/login", () => {
       renderTemplate(templateLogin,"content")
-      setupLoginHandlers()
-      logout()
+
+
     })
 
     .on( "/register", () => {
       renderTemplate(templateRegister,"content")
-      setupRegisterHandlers()
+
     })
 
     });   

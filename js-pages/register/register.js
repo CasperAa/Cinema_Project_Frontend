@@ -1,5 +1,5 @@
-import {LOCAL_SERVER_URL} from "../../settings.js"
-import {makeOptions} from "../../fetchUtils.js";
+import {makeOptions} from "../../fetchUtils";
+import {LOCAL_SERVER_URL} from "../../settings";
 
 const URL = LOCAL_SERVER_URL + "customer/register"
 
