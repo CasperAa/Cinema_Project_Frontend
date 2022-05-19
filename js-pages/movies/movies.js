@@ -15,8 +15,6 @@ export function movieMethods(){
 export async function getMovies(url) {
     const resp = await fetch(url);
     const respData = await resp.json();
-
-    console.log(respData);
     showMovies(respData.results);
 }
 

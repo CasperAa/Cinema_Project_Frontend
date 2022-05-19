@@ -1,6 +1,6 @@
 import "https://unpkg.com/navigo"  //Will create the global Navigo object used below
 
-import { renderText, setActiveLink, loadTemplate, renderTemplate } from "./utils.js"
+import { setActiveLink, loadTemplate, renderTemplate } from "./utils.js"
 import { movieMethods } from "./js-pages/movies/movies.js"
 import { showingsMethods} from "./js-pages/showings/showings.js"
 
@@ -13,6 +13,7 @@ window.addEventListener("load", async () => {
   const templateLogin = await loadTemplate("./js-pages/login/login.html")
   const templateSeats = await loadTemplate("./js-pages/selectSeat/selectSeat.html")
   const templateShowings = await loadTemplate("./js-pages/showings/showings.html")
+  const templateConfirmed = await loadTemplate("./js-pages/confirmed/confirmed.html")
 
   const router = new Navigo("/", { hash: true });
   router
@@ -37,11 +38,20 @@ window.addEventListener("load", async () => {
     
     .on("/showShowings", (match) => {
       renderTemplate(templateShowings,"content")
-      console.log(JSON.stringify(match))
+      console.log("Showings "+JSON.stringify(match))
       showingsMethods(match)
     })
 
-    .on( "/login", (match) => {
+    .on("/showSeats", (match) => {
+      renderTemplate(templateSeats,"content")
+      console.log("Seats "+JSON.stringify(match))
+    })
+
+    .on("/confirmed", () => {
+      renderTemplate(templateConfirmed,"content")
+    })
+
+    .on( "/login", () => {
       renderTemplate(templateLogin,"content")
     })
 

@@ -1,7 +1,6 @@
 <template>
     <div class="movie_container">
       <h2 id="movie_title"></h2>
-      <img Class="movie_Poster"> 
     </div>
 
     <ul class="showcase">
@@ -46,18 +45,8 @@
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
@@ -74,20 +63,28 @@
       </div>
       <div class="row">
         <div class="seat"></div>
+        <div class="seat "></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
+      </div>
+      <div class="row">
         <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
         <div class="seat"></div>
         <div class="seat"></div>
       </div>
     </div>
 
-    <p class="text">
-      You have selected <span id="count">0</span> seats for a price of $<span
-        id="total"
-        >0</span>
-    </p>
-    <button class="confirm"> Confirm booking </button>
+    <a class="btn bookseats btn-primary" href="#/confirmed"  
+                data-navigo> 
+                Book Seats
+                </a>
 </template>
