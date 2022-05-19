@@ -1,7 +1,7 @@
 import {LOCAL_SERVER_URL} from "../../settings.js"
 import {makeOptions} from "../../fetchUtils.js";
 
-const URL = LOCAL_SERVER_URL + "customers"
+const URL = LOCAL_SERVER_URL + "customer/register"
 
 export function setupRegisterHandlers() {
     document.getElementById("btn-register").onclick = registerCustomer
@@ -15,15 +15,10 @@ function registerCustomer() {
     customer.password = document.getElementById("input-password").value
 
 
-    fetch(URL, makeOptions("POST", customer, true))
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject("Error: " + res.status)
-            }
-            return res.json()
-        })
+    fetch(URL, makeOptions("POST", customer))
+        .then(res => res.json())
         .then(newCustomer => {
-            document.getElementById("customer-info-all").innerText = JSON.stringify(newCustomer)
+            document.getElementById("btn-register").innerText = JSON.stringify(newCustomer)
         })
-        .catch(e => console.error(e))
+        .catch(error => console.error(error))
 }
