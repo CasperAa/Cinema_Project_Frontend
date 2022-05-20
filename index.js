@@ -1,6 +1,6 @@
 import "https://unpkg.com/navigo"  //Will create the global Navigo object used below
 
-import { setActiveLink, loadTemplate, renderTemplate } from "./utils.js"
+import { setActiveLink, loadTemplate, renderTemplate, adjustForMissingHash } from "./utils.js"
 import { movieMethods } from "./js-pages/movies/movies.js"
 import { showingsMethods} from "./js-pages/showings/showings.js"
 
@@ -16,6 +16,7 @@ window.addEventListener("load", async () => {
   const templateConfirmed = await loadTemplate("./js-pages/confirmed/confirmed.html")
 
   const router = new Navigo("/", { hash: true });
+  adjustForMissingHash()
   router
     .hooks({
       before(done, match) {
