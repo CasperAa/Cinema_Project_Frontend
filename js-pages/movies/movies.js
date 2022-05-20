@@ -5,8 +5,8 @@ const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
 
 
-// initially get fav movies
 
+// initially get 20 movies
 export function movieMethods(){
     getMovies(MOVIE_API);
 }
@@ -33,6 +33,7 @@ function showMovies(movies) {
                 src="${IMGPATH + poster_path}"
                 alt="${title}"
             />
+
             <div class="movie-data">
                 <h4>${title}</h4>   
             </div>
@@ -40,6 +41,7 @@ function showMovies(movies) {
                 <h5>Overview:</h5>
                 ${overview}
                 <br>
+
                 <a class="btn btn-primary" href="#/showShowings?movie=${title}&id=${id}"  
     
                 data-navigo> 
