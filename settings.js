@@ -1,3 +1,1 @@
-export const CLOUD_SERVER_URL =""
-
-export const LOCAL_SERVER_URL = "http://localhost:8080/api"
+export const LOCAL_SERVER_URL = "http://cinemaproject.azurewebsites.net/api"
