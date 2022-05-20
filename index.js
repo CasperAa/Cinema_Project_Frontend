@@ -10,7 +10,7 @@ import { showingsMethods} from "./js-pages/showings/showings.js"
 window.addEventListener("load", async () => {
   const templateHome = await loadTemplate("./js-pages/home/home.html")
   const templateMovies = await loadTemplate("./js-pages/movies/movies.html")
-  const templateLogin = await loadTemplate("./js-pages/login/login.html")
+  const templateLogin = await loadTemplate("./js-pages/Login/login.html")
   const templateSeats = await loadTemplate("./js-pages/selectSeat/selectSeat.html")
   const templateShowings = await loadTemplate("./js-pages/showings/showings.html")
   const templateConfirmed = await loadTemplate("./js-pages/confirmed/confirmed.html")
