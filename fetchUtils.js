@@ -23,3 +23,4 @@ export function makeOptions(method, body, addToken) {
     }
     return opts;
 }
+

@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="selectSeat.css" />
-   
-    <title>Movie Seat Booking</title>
-  </head>
-  <body>
-    <div class="movie-container">
-      <h1> **Selected Movie Here** </h1>
-      <img Class="moviePoster"> 
+<template>
+    <div class="movie_container">
+      <h2 id="movie_title"></h2>
     </div>
 
     <ul class="showcase">
@@ -56,18 +45,8 @@
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
@@ -84,21 +63,28 @@
       </div>
       <div class="row">
         <div class="seat"></div>
+        <div class="seat "></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
+      </div>
+      <div class="row">
         <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
         <div class="seat"></div>
         <div class="seat"></div>
       </div>
     </div>
 
-    <p class="text">
-      You have selected <span id="count">0</span> seats for a price of $<span
-        id="total"
-        >0</span>
-    </p>
-    <button class="confirm"> Confirm booking </button>
-  </body>
-</html>
+    <a class="btn bookseats btn-primary" href="#/confirmed"  
+                data-navigo> 
+                Book Seats
+                </a>
+</template>
