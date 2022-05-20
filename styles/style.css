@@ -42,10 +42,9 @@ ul.menu li a:hover:not(.active) {
 
 .active {
   background-color: lightslategray;
-}
 
 #content{
   overflow: auto;
   background: lightgoldenrodyellow;
-
 }
+

@@ -9,6 +9,7 @@ header {
     display: flex;
     justify-content: center;
 }
+
 header h1 { 
     color: black; 
     font-family: 'Raleway',sans-serif; 
@@ -20,7 +21,6 @@ header h1 {
     padding: 0;
 }
     
-
 main {
     display: flex;
     flex-wrap: wrap;
@@ -41,6 +41,7 @@ main {
     width: 100%;
 }
 
+
 .movie-data {
     color: black;
     display: flex;
@@ -49,6 +50,7 @@ main {
     padding: 0.5rem 1rem 1rem;
     letter-spacing: 0.5px;
 }
+
 
 .movie-data h4 {
     margin: 0;
@@ -72,6 +74,7 @@ main {
     right: 0;
     transform: translateY(101%);
     transition: transform 0.5s ease-in;
+
 }
 
 .overview button{
@@ -114,7 +117,6 @@ main {
     padding: 13px 50px 13px;
   }
 }
-
 
 .overview h5 {
     margin-top: 0;
